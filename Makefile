@@ -1,3 +1,10 @@
+venv/bin/python: requirements.txt
+	test -d venv || virtualenv -p python3 venv
+	venv/bin/pip install -Ur requirements.txt
+	touch venv/bin/python
+
+*.py: venv/bin/python
+
 %/.created:
 	mkdir -p $(dir $@)
 	touch $@
