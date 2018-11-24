@@ -9,6 +9,9 @@ venv/bin/python: requirements.txt
 	mkdir -p $(dir $@)
 	touch $@
 
+build/%-vi.json: build/.created vi.py
+	venv/bin/python vi.py $* 0.99 $@
+
 build/analysis.pdf: build/.created analysis/analysis.tex
 	pdflatex -output-directory=build analysis/analysis.tex
 	cp analysis/Bibliography.bib build
