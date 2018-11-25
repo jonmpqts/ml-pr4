@@ -10,7 +10,7 @@ venv/bin/python: requirements.txt
 	touch $@
 
 build/%-vi.json: build/.created vi.py
-	venv/bin/python vi.py $* 0.99 $@
+	venv/bin/python vi.py $* $@
 
 build/analysis.pdf: build/.created analysis/analysis.tex
 	pdflatex -output-directory=build analysis/analysis.tex
